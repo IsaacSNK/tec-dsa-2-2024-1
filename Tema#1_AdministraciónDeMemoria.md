@@ -1,25 +1,21 @@
 # Tema #1 - Administración De Memoria
 
-## Algoritmos y Estructuras de Datos II (CE2103)
-
-### Prof. Jose Isaac Ramírez Herrera
-
 ---
 
 ## Definición de Sistema Operativo (S.O)
 
 - Capa de software que interactúa directamente con el hardware.
 
-El S.O es para usuarios finales, con el fin de "exponer" todo lo que pasa sobre él.
+Por así decirlo, el S.O interactúa como un intermediario entre el hardware que posee una computadora y las aplicaciones de software, así facilitando la gestión de recursos del sistema.
 
 ## Funciones
 
 - API para los developers.
 - Administrar los recursos de la máquina.
   
-API corresponde a las siglas de la palabra *Application Programming Interface*, la cual corresponde a una interface para los recursos del hardware. Es utilizado para varias cosas, como por ejemplo API Web, S.O, Class Libraries, etc; en nuestro caso, nos interesa el API S.O.
+API corresponde a las siglas de la palabra *Application Programming Interface*, la cual es una interface para los recursos del hardware. Es utilizado para varias cosas, como por ejemplo API web, API S.O, API class libraries, etc; en nuestro caso, nos interesa el API S.O.
 
-Un estándar para las API de los S.O es el **posix**. El posix son las siglas de la palabra en inglés *Portable Operative Interface For UNIX*. Como se mencionó, el posix es un **estándar del IEEE para los APIS del S.O**.
+Un estándar para las API de los S.O es el **posix**. El posix son las siglas de la palabra en inglés *portable operative interface for unix*. Como se mencionó, el posix es un **estándar del IEEE para los APIS del S.O**.
 
 Un ejemplo de API, para archivos es el *pointer* o *handler* al archivo:
 `fptr = fopen("archivo.txt")`
@@ -50,7 +46,7 @@ La administración de memoria viene de la pregunta ¿cómo distribuyo la RAM? Do
 - Minimizar la fragmentación.
 - Mantener la integridad de los datos.
 
-La idea de controlar la memoria asignada a un proceso tiene como fin hacer que tenga un límite y aislamiento el proceso sin que afecte a otros en la memoria.
+La idea de controlar la memoria asignada a un proceso, tiene como fin hacer que el mismo tenga un límite y aislamiento, para que así no afecte a otros procesos en la memoria que se estén ejecutando.
 
 Además, al ser disminuida la fragmentación se puede brindar una memoria continua a los procesos (desfragmentación).
 
@@ -74,19 +70,17 @@ Por lo tanto, ahora si se puede realizar el proceso que necesita tres espacios e
 
 ## Evolución de la Administración de memoria
 
-Los sistemas operativos evoluciona y mejoran la administración, esto con el fin de cumplir con los requerimientos de los clientes finales.
+Los sistemas operativos evolucionan y mejoran la administración, esto con el fin de cumplir con los requerimientos de los clientes finales.
 Por ejemplo:
-- Ejecutar varios procesos "a la vez" con un solo CPU el SO.O "presta" el CPU por tiempo (QUANTA), cambia contexto y ejecuta otro programa 
 
-## 1^er^ Enfoque: Ninguna Abstracción:
+- Ejecutar varios procesos "a la vez" con un solo CPU el S.O "presta" el CPU por tiempo (QUANTA), cambia contexto y ejecuta otro programa.
+
+## 1^er^ Enfoque: Ninguna Abstracción
+
 - Acceso directo a la memoria principal, fisica, sin ninguna abstracción. Direcciones de memoria generadas en tiempo de compilación o carga (se generan de forma estática)
 - Inicialmente no permitía la multiprogramación
 
 Multiprogramación
 ![memoria.png](https://github.com/JBB092/Datos-II/blob/main/LayoutMemoria.png?raw=true)
 
-- Posteriormente se logra la multiprogramación mediante _static relocation_. El _static recolation_ consiste en que al cargar el programa, se ajustan las direcciones considerando la dirección inicial de donde se carga un programa. 
-
-
-
-
+- Posteriormente se logra la multiprogramación mediante *static relocation*. El *static recolation* consiste en que al cargar el programa, se ajustan las direcciones considerando la dirección inicial de donde se carga un programa.
