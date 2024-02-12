@@ -1,6 +1,3 @@
-# Clase 2 - 9/2/2024
-
----
 
 # Thread vs Process
 
@@ -93,9 +90,7 @@ Complejidad espacial → constante, 128
 
 ---
 
-# Apuntes de clase
-
-# 2do enfoque: espacios de direcciones
+# 2^do^ enfoque: espacios de direcciones
 
 - Similar a los números telefónicos: Un bloque de números asignados a ciertas zonas.
 - Cada programa tiene un grupo de direcciones asignadas.
@@ -103,43 +98,27 @@ Complejidad espacial → constante, 128
 - Esta traducción se le conoce como Dynamic Relocation.
 - El programa completo debe caber en el RAM para poder ejecutarse.
 
----
-
 ![Untitled](Clase%202%20-%209%202%202024%20bc85ecfa5c4e49f49e41b79383c208ee/Untitled.jpeg)
 
----
-
-# 3er enfoque: Memoria virtual
+# 3^er^ enfoque: Memoria virtual
 
 - Nuevo requerimiento: Ejecutar un programa más grande que la memoria total.
 - Programa requiere de 16GB de RAM, pero tengo 512 MB → Funciona lento, pero funciona.
 - En un sistema operativo de 32 bits un proceso tendrá un espacio de direcciones de ~ 4GB. Si la memoria física son solo 16 B :
 
----
-
 ![Untitled](Clase%202%20-%209%202%202024%20bc85ecfa5c4e49f49e41b79383c208ee/Untitled%201.jpeg)
-
----
 
 - La memoria virtual agrega una capa de indirección que “traduce”. Requiere Hardware especializado, conocido como
 
 MMU → Memory Mapping Unit
 
----
-
 ![Untitled](Clase%202%20-%209%202%202024%20bc85ecfa5c4e49f49e41b79383c208ee/Untitled%202.jpeg)
-
----
 
 - El address space del programa se divide en Frames
 
 Page size = framesize
 
----
-
 ![Untitled](Clase%202%20-%209%202%202024%20bc85ecfa5c4e49f49e41b79383c208ee/Untitled%203.jpeg)
-
----
 
 - Dado que los frames se acaban, se utilizan un algoritmo de reemplazo para quitar el contenido de un frame, guardarlo a disco, y subir la página.
 
