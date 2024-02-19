@@ -122,4 +122,39 @@ Page size = framesize
 
 - Dado que los frames se acaban, se utilizan un algoritmo de reemplazo para quitar el contenido de un frame, guardarlo a disco, y subir la página.
 
-Solicitud → SWAD
+Solicitud → SWAP
+
+# Memory layout de un programa en C / C++
+
+ - El layout depende del lenguaje/compilador que el sistema operativo respeta.
+ - No es un bloque contiguo, la estrategia/enfoque de administración de memoria se aplica sobre todo el layout transparentemente. 
+![](Clase-14-Feb-2024/Memory-Layout.png)
+
+## Stack
+
+- Utiliza un stack (estructura de datos) cuya naturaleza es *LIFO*.
+- Cada entrada se llama STACK FRAME.
+- Hay un stack frame por cada llamada a una función (Call stack).
+- Al terminar la función se elimina el frame.
+
+
+*Consideraciones importantes:*
+	- Las variables locales almacenables en el stack deben ser de tamaño conocido al momento de la compilación. Por esta razón, memoria dinámica como listas enlazadas no puede almacenarse en stacks.
+	- El stack es bug-free y amigable. 
+
+## Componentes de cada FRAME
+- Espacio para las variables locales (automáticas).
+- Número de instrucción donde regresar una vez terminada la función.
+- Espacio para los argumentos y el return value.
+
+A continuación un ejemplo del comportamiento de los stack frames a partir del código siguiente:
+![](Clase-14-Feb-2024/Sample-Code.png)
+
+Se crea el stack frame de la función *main* y se ejecuta la primera instrucción de la misma.
+![](Clase-14-Feb-2024/Stack-F1.png)
+La función *main* hace una llamada a la función *foo* así que se crea el stack frame de la función *foo* y se ejecuta la primera instrucción de la misma.
+![](Clase-14-Feb-2024/Stack-F2.png)
+Dado que la función *foo* hace otra llamada a la función *bar*, se crea otro stack frame para la función *bar*.
+![](Clase-14-Feb-2024/Stack-F3.png)
+Luego de terminar de ejecutar la función *bar*, se elimina su stack frame y se continúa con la siguiente línea de la función *foo* que también termina de ejecutarse, entonces, nuevamente, se libera un frame stack y volvemos a *main* para ejecutar la siguiente instrucción de la misma. Dado que nuevamente es una llamada a *foo*, el ciclo que vimos se repetirá una vez más.
+![](Clase-14-Feb-2024/Stack-F4.png)
